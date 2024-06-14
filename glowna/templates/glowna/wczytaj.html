@@ -1,0 +1,17 @@
+{% extends "../base/base.html" %}
+
+{% block ladowanieDanych %}  
+
+<h3>Wczytaj plik</h3>
+
+<hr>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="plikExcel" />
+    <button type="submit">Wczytaj</button>
+
+
+</form>
+
+{% endblock  %}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analiza SWATH-MS</title>
+</head>
+<body>
+    <nav class="navbar navbar-inverse" style="border-radius:0px;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand active" href="{% url 'home' %}">Strona Głowna</a>
+                </div>
+            <div>
+                    <ul class="nav navbar-nav">
+                            <li><a href="{% url 'push_excel' %}">Wczytaj plik Excel z danym SWATH</a></li>
+                            <li><a href="{% url 'graf' %}">Podgląd wczytanych danych</a></li>
+                            
+                   </ul>               
+             </div>
+          </div>
+        </nav>
+
+
+    {% block stronyGlownej %}
+    {% endblock %}
+
+    {% block ladowanieDanych %}
+    {% endblock %}
+
+    {% block wykres %}
+    {% endblock %}
+
+</body>
+</html>

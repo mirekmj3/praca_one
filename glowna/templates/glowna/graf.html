@@ -1,0 +1,13 @@
+{% extends "../base/base.html" %}
+
+
+{% block wykres %}
+
+{{ graf|safe}}
+
+<form method="GET" action="{% url 'graf' %}">
+    {{form.as_p}}
+    <button>Szukaj</button><button><a href="{% url 'graf' %}" style="text-decoration: none; color:inherit">Reset filtra</a></button>
+</form>
+
+{% endblock %}

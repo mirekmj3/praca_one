@@ -1,13 +1,16 @@
 {% extends "../base/base.html" %}
-
+{% load static %}
 
 {% block stronyGlownej %}
-
+<hr>
 
 <h3>Opis SWATH</h3>
 <p>Metoda analizy białek SWATH-MS (ang. Sequential Window Acquisition of all Theoretical fragment ion spectra) to zaawansowana technika spektrometrii mas, która umożliwia ilościową analizę białek. Ta metoda jest szczególnie przydatna w badaniach proteomicznych, gdzie dokładne i kompleksowe profile białek są kluczowe. Dzięki SWATH-MS, naukowcy mogą uzyskać szczegółowe informacje o strukturze i ilości białek w próbkach biologicznych. Metoda ta jest wykorzystywana w różnych dziedzinach, takich jak biologia molekularna, biochemia i medycyna, do badania różnych aspektów funkcji białek. W porównaniu do innych metod, SWATH-MS oferuje wyższą czułość i dokładność, co czyni ją niezwykle cennym narzędziem w badaniach naukowych.
 </p>
-<h3>Opis aplikacji</h3>
-<p></p>
-
+<h3>Instrukcja</h3>
+<p>1. Przygotuj plik Excel z danymi (obecnie aplikacja wczytuje dane z kolumną ID, oraz 3 kolumnami z danymi porównującymi dane dla szczepów w 3 różnych warunkach. Przykładowa struktura pliku poniżej. Nagłówki w Twoim pliku musza być identyczne.</p>
+<img src="{% static 'excel.png' %}">
+<p>2. Przejdź do strony Wczytania pliku</p>
+<p>3. Sprawdź wygląd danych przechodząc do widoku podglądu</p>
+<p>4. Widok podglądu można modyfikować poprzez wybranie zakresu (z możliwością powrotu do widoku ogólnego) oraz wyboru wyświetlanych danych dla warunków.</p>
 {% endblock %}

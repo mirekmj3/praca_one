@@ -34,8 +34,8 @@ def importExcel(request):
 
 def graf(request):
     daneSwath = SWATH.objects.all()
-    daneSwath1 = daneSwath.values()
-    daneSwath2 = pandas.DataFrame(daneSwath1)
+    # daneSwath1 = daneSwath.values()
+    # daneSwath2 = pandas.DataFrame(daneSwath1)
     poczatek = request.GET.get('poczatek')
     koniec = request.GET.get('koniec')
 
@@ -52,7 +52,7 @@ def graf(request):
         x = [c.Hp_26695 for c in daneSwath],        
         y= [[c.comp_delta for c in daneSwath],[c.comp_wt for c in daneSwath],[c.delta_wt for c in daneSwath]],
         title="wyniki analizy SWATH-MS",        
-        labels={'x':'geny H. pylori', 'y':'relatywna ekspresja'}
+        labels={'x':'geny H. pylori', 'value':'relatywna ekspresja', 'variable':'porownywane warianty'}
     )
 
     # figure.update_layout(title={
@@ -91,7 +91,13 @@ def graf(request):
         title={'font_size':22,'xanchor':'center','x': 0.5},
         )
 
-   
+    newnames = {'wide_variable_0':'comp/delta', 'wide_variable_1':'comp/wt', 'wide_variable_2':'delta/wt'}
+    figure.for_each_trace(lambda t: t.update(name = newnames[t.name],
+                                      legendgroup = newnames[t.name],
+                                      hovertemplate = t.hovertemplate.replace(t.name, newnames[t.name])
+                                     )
+                  )
+
     graf = figure.to_html()
     context = {'graf': graf, 'form':SWATHform3()}
     return render(request, "glowna/graf.html", context)
